@@ -1,0 +1,13 @@
+.header {
+    text-align: center;
+    background: gray;
+    color: white;
+}
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
