@@ -6,7 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-  items = [1, 2, 3];
+  items = [
+    {
+      header: 'Header 1',
+      text: 'Text 1'
+    },
+    {
+      header: 'Header 2',
+      text: 'Text 2'
+    },
+  ];
 
   constructor() {}
 

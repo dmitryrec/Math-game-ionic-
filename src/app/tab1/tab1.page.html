@@ -20,7 +20,10 @@
     <div padding>
       <ion-list>
         <ion-item *ngFor="let item of items">
-          {{item}}
+          <div>
+            <h3>{{item.header}}</h3>
+            <p>{{item.text}}</p>
+          </div>
         </ion-item>
       </ion-list>
     </div>
