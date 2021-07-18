@@ -1,6 +1,6 @@
 .game-container {
     height: 95vh;
-    background: var(--ion-color-dark);
+    background: var(--ion-color-warning-tint);
     color: var(--ion-color-warning-tint);
     box-sizing: border-box;
     padding: 0;
@@ -22,9 +22,25 @@
         grid-template-columns: 1fr 1fr 1fr;
 
         div {
+            background: var(--ion-color-dark);
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 5px;
+            margin: .5rem;
+        }
+
+        &__del, &__ok {
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        &__del {
+            color: var(--ion-color-danger);
+        }
+
+        &__ok {
+            color: var(--ion-color-success);
         }
     }
 

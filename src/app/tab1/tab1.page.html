@@ -1,21 +1,29 @@
 <ion-content [fullscreen]="true">
   <div class="game-container">
     <div class="game-container__question">
-      9 + 18
+      {{num1}} {{operator}} {{num2}} = {{answer}}
     </div>
     <div class="game-container__keyboard">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
-      <div>del</div>
-      <div>0</div>
-      <div>ok</div>
+      <div (click)="pushInAnswer(1)">1</div>
+      <div (click)="pushInAnswer(2)">2</div>
+      <div (click)="pushInAnswer(3)">3</div>
+      <div (click)="pushInAnswer(4)">4</div>
+      <div (click)="pushInAnswer(5)">5</div>
+      <div (click)="pushInAnswer(6)">6</div>
+      <div (click)="pushInAnswer(7)">7</div>
+      <div (click)="pushInAnswer(8)">8</div>
+      <div (click)="pushInAnswer(9)">9</div>
+      <div 
+        class="game-container__keyboard__del"
+        (click)="resetAnswer()">
+        del
+      </div>
+      <div (click)="pushInAnswer(0)">0</div>
+      <div 
+        class="game-container__keyboard__ok"
+        (click)="sendAnswer()">
+        ok
+      </div>
     </div>
   </div>
 </ion-content>
