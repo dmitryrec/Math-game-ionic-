@@ -65,4 +65,16 @@ export class Tab1Page {
     this.resetAnswer();
   }
 
+  generateDevidedNums(min, max) {
+    let devidedArray = [];
+    for (let i = min; i < max; i++) {
+        for (let k = 2; k <= i; k++) {
+            if (i % k === 0 && k !== 1 && k !== i) {
+              devidedArray.push({ "num": i, "divider": k });
+            }
+        }
+    }
+    return devidedArray;
+  }
+
 }
