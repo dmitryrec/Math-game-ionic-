@@ -9,10 +9,11 @@ export class Tab1Page {
 
   num1: number;
   num2: number;
-  operators = ['-', '+'];
+  operators = ['+', '-', '*', '/'];
   operator;
   answer= '';
   rightAnswer;
+  devidedNums = [];
   
   constructor() {}
 
@@ -28,10 +29,15 @@ export class Tab1Page {
   }
 
   returnResult(num1, operator, num2) {
-    if(operator === '-') {
-      return num1 - num2
-    } else {
-      return num1 + num2
+    switch(operator) {
+      case '+':
+      return num1 + num2;
+      case '-':
+      return num1 - num2;
+      case '*':
+      return num1 * num2;
+      case '/':
+      return num1 / num2;
     }
   }
 
@@ -51,16 +57,23 @@ export class Tab1Page {
     if (this.rightAnswer === +this.answer) {
       alert('right!');
       this.generateNewQuestion()
-    }  else {
+    } else {
       alert('wrong!');
       this.answer = '';
     } 
   }
 
   generateNewQuestion() {
-    this.num1 = this.generateRandomNum(50, 100);
-    this.num2 = this.generateRandomNum(0, 50);
-    this.operator = this.operators[Math.random() < 0.5 ? 1 : 0];
+    this.operator = this.operators[this.generateRandomNum(0, 4)];
+    if (this.operator === "/") {
+      this.devidedNums = this.generateDevidedNums(10, 80);
+      let randomDevidedAnswer = this.devidedNums[this.generateRandomNum(0, this.devidedNums.length - 1)];
+      this.num1 = randomDevidedAnswer.num;
+      this.num2 = randomDevidedAnswer.divider;
+    } else {
+      this.num1 = this.generateRandomNum(50, 100);
+      this.num2 = this.generateRandomNum(0, 50);
+    }
     this.rightAnswer = this.returnResult(this.num1, this.operator, this.num2);
     this.resetAnswer();
   }

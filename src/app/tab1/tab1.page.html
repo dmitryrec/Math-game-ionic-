@@ -24,7 +24,8 @@
       <div (click)="pushInAnswer(0)">0</div>
       <div 
         class="game-container__keyboard__ok"
-        (click)="sendAnswer()">
+        (click)="sendAnswer()"
+        [ngClass]="{'disabled': !answer}">
         ok
       </div>
     </div>
