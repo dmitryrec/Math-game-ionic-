@@ -1,5 +1,5 @@
 .game-container {
-    height: 95vh;
+    height: 100vh;
     background: var(--ion-color-warning-tint);
     color: var(--ion-color-warning-tint);
     box-sizing: border-box;
@@ -17,7 +17,7 @@
     &__question {
         background: var(--ion-color-dark);
         color: var(--ion-color-warning-tint);
-        height: 35vh;
+        height: 40vh;
         display: flex;
         align-items: center;
         justify-content: center;

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-game',
+  templateUrl: 'game.page.html',
+  styleUrls: ['game.page.scss']
 })
-export class Tab1Page {
+export class GamePage {
 
   num1: number;
   num2: number;

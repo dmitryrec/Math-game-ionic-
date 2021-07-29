@@ -1,0 +1,20 @@
+.menu {
+    background: var(--ion-color-dark);
+    color: var(--ion-color-warning-tint);
+    height: 100vh;
+
+    &__header {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    &__buttons {
+        margin-top: 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 30vh;
+        font-size: 20px;
+    }
+}
