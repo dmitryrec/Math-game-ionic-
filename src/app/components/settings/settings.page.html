@@ -4,8 +4,9 @@
       Settings
     </div>
 
-    <div class="settings__buttons">
-      <div routerLink="/game" >
+    <div class="settings__buttons" 
+         [ngClass]="{'hide': !this.settingsService.selectedOperators.length}">
+      <div routerLink="/game">
         play
       </div>
       <div routerLink="/menu">
@@ -13,5 +14,20 @@
       </div>
     </div>
 
+    <h2 
+      class="settings__warning"
+      [ngClass]="{'hide': this.settingsService.selectedOperators.length}">
+      Please select at least one operator
+    </h2>
+
+    <div class="settings__options">
+      <div class="settings__operator" 
+      (click)="setOperatorsState(operator)" 
+      *ngFor="let operator of operatorsForRender"
+      [ngClass]="{'selected': operatorsState[operator]}">
+      {{operator}}
+    </div>
+      
+    </div>
   </div>
 </ion-content>

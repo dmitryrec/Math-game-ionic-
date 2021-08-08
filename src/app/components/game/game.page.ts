@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-game',
@@ -9,19 +10,17 @@ export class GamePage {
 
   num1: number;
   num2: number;
-  operators = ['+', '-', '*', '/'];
+  operators = this.settingsService.selectedOperators;
   operator;
   answer= '';
   rightAnswer;
   devidedNums = [];
   
-  constructor() {}
+  constructor(private settingsService: SettingsService) {}
 
-  ngOnInit() {
+  ionViewWillEnter() {
+    this.operators = this.settingsService.selectedOperators;
     this.generateNewQuestion();
-    console.log(this.num1);
-    console.log(this.num2);
-    console.log(this.rightAnswer);
   }
 
   generateRandomNum(min, max) {
@@ -43,12 +42,10 @@ export class GamePage {
 
   resetAnswer() {
     this.answer = '';
-    console.log(this.answer);
   }
 
   pushInAnswer(num) {
     this.answer+=num;
-    console.log(this.answer);
   }
 
   sendAnswer() {
@@ -56,7 +53,7 @@ export class GamePage {
     console.log(this.answer);
     if (this.rightAnswer === +this.answer) {
       alert('right!');
-      this.generateNewQuestion()
+      this.generateNewQuestion();
     } else {
       alert('wrong!');
       this.answer = '';
@@ -64,7 +61,7 @@ export class GamePage {
   }
 
   generateNewQuestion() {
-    this.operator = this.operators[this.generateRandomNum(0, 4)];
+    this.operator = this.operators[this.generateRandomNum(0, this.operators.length)];
     if (this.operator === "/") {
       this.devidedNums = this.generateDevidedNums(10, 80);
       let randomDevidedAnswer = this.devidedNums[this.generateRandomNum(0, this.devidedNums.length - 1)];
