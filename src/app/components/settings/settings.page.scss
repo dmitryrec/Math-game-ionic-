@@ -20,6 +20,17 @@
         font-size: 20px;
     }
 
+    &__button {
+        display: flex;
+        border: 1px solid var(--ion-color-warning-tint);
+        border-radius: 5px;
+        min-width: 5rem;
+        height: 3rem;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+
     &__options {
         display: flex;
         justify-content: center;

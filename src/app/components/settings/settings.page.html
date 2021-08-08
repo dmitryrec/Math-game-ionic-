@@ -6,10 +6,12 @@
 
     <div class="settings__buttons" 
          [ngClass]="{'hide': !this.settingsService.selectedOperators.length}">
-      <div routerLink="/game">
+      <div routerLink="/game"
+           class="settings__button">
         play
       </div>
-      <div routerLink="/menu">
+      <div routerLink="/menu"
+           class="settings__button">
         menu
       </div>
     </div>
