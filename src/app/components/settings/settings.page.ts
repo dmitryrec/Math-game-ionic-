@@ -13,7 +13,7 @@ export class SettingsPage {
 
   constructor(public settingsService: SettingsService) {}
 
-  ionViewDidEnter() {
+  ionViewWillEnter() {
     this.settingsService.selectedOperators = [];
     this.operatorsState = {
       '+': false, 

@@ -11,8 +11,8 @@ export class GamePage {
   num1: number;
   num2: number;
   operators = this.settingsService.selectedOperators;
-  operator;
-  answer= '';
+  operator: string;
+  answer: string= '';
   rightAnswer;
   devidedNums = [];
   
@@ -23,11 +23,11 @@ export class GamePage {
     this.generateNewQuestion();
   }
 
-  generateRandomNum(min, max) {
+  generateRandomNum(min, max): number {
     return Math.floor(Math.random() * (max - min) + min);
   }
 
-  returnResult(num1, operator, num2) {
+  returnResult(num1, operator, num2): number {
     switch(operator) {
       case '+':
       return num1 + num2;
@@ -44,7 +44,7 @@ export class GamePage {
     this.answer = '';
   }
 
-  pushInAnswer(num) {
+  pushInAnswer(num: number) {
     this.answer+=num;
   }
 
@@ -75,7 +75,7 @@ export class GamePage {
     this.resetAnswer();
   }
 
-  generateDevidedNums(min, max) {
+  generateDevidedNums(min: number, max: number) {
     let devidedArray = [];
     for (let i = min; i < max; i++) {
         for (let k = 2; k <= i; k++) {

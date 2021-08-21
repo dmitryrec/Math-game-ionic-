@@ -4,10 +4,10 @@
       Settings
     </div>
 
-    <div class="settings__buttons" 
-         [ngClass]="{'hide': !this.settingsService.selectedOperators.length}">
+    <div class="settings__buttons">
       <div routerLink="/game"
-           class="settings__button">
+           class="settings__button"
+           [ngClass]="{'not-active': !this.settingsService.selectedOperators.length}">
         play
       </div>
       <div routerLink="/menu"
@@ -17,8 +17,7 @@
     </div>
 
     <h2 
-      class="settings__warning"
-      [ngClass]="{'hide': this.settingsService.selectedOperators.length}">
+      class="settings__warning">
       Please select at least one operator
     </h2>
 
