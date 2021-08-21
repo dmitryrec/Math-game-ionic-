@@ -11,13 +11,14 @@
         play
       </div>
       <div routerLink="/menu"
-           class="settings__button">
+           class="settings__button"
+           [ngClass]="{'not-active': !this.settingsService.selectedOperators.length}">
         menu
       </div>
     </div>
 
-    <h2 
-      class="settings__warning">
+    <h2 class="settings__warning"
+        [ngClass]="{'hide': this.settingsService.selectedOperators.length}">
       Please select at least one operator
     </h2>
 

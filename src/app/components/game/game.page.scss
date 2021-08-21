@@ -36,6 +36,12 @@
             justify-content: center;
             border-radius: 5px;
             margin: .5rem;
+            box-sizing: border-box;
+            border: 10px solid var(--ion-color-dark);
+        }
+
+        div:active {
+            border: 10px solid green;
         }
 
         &__del, &__ok {

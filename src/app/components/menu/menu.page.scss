@@ -6,6 +6,7 @@
     &__header {
         font-size: 25px;
         text-align: center;
+        padding: 20px;
     }
 
     &__buttons {
@@ -16,5 +17,15 @@
         align-items: center;
         height: 30vh;
         font-size: 20px;
+    }
+    
+    &__button {
+        display: flex;
+        border: 1px solid var(--ion-color-warning-tint);
+        border-radius: 5px;
+        min-width: 5rem;
+        height: 3rem;
+        justify-content: center;
+        align-items: center;
     }
 }
