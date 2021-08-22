@@ -37,6 +37,28 @@
         align-items: center;
     }
 
+    &__subheader {
+        text-align: center;
+        font-size: 1rem;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    &__round-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__round-count {
+        padding: 0 5px;
+    }
+
+    &__round-btn {
+        --background: var(--ion-color-tertiary-tint);
+        width: 40px;
+    }
+
     &__operator {
         margin: 10px;
         height: 30px;

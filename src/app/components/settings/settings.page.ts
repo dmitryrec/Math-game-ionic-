@@ -10,6 +10,7 @@ export class SettingsPage {
 
   operatorsForRender = ['+', '-', '*', '/'];
   operatorsState = {};
+  roundCount = 1;
 
   constructor(public settingsService: SettingsService) {}
 
@@ -33,4 +34,7 @@ export class SettingsPage {
     }
   }
 
+  setRoundCount(plus: boolean) {
+    plus ? this.roundCount += 1 : this.roundCount -= 1;
+  }
 }

@@ -1,8 +1,14 @@
 <ion-content [fullscreen]="true">
   <div class="settings">
+
     <div class="settings__header">
       Settings
     </div>
+
+    <h2 class="settings__warning"
+        [ngClass]="{'hide': this.settingsService.selectedOperators.length}">
+      Please select at least one operator
+    </h2>
 
     <div class="settings__buttons">
       <div routerLink="/game"
@@ -17,19 +23,34 @@
       </div>
     </div>
 
-    <h2 class="settings__warning"
-        [ngClass]="{'hide': this.settingsService.selectedOperators.length}">
-      Please select at least one operator
-    </h2>
-
+    <div class="settings__subheader">Operators</div>
     <div class="settings__options">
       <div class="settings__operator" 
-      (click)="setOperatorsState(operator)" 
-      *ngFor="let operator of operatorsForRender"
-      [ngClass]="{'selected': operatorsState[operator]}">
-      {{operator}}
+        (click)="setOperatorsState(operator)" 
+        *ngFor="let operator of operatorsForRender"
+        [ngClass]="{'selected': operatorsState[operator]}">
+        {{operator}}
+      </div>
     </div>
-      
+
+    <div class="settings__subheader">Round count</div>
+    <div class="settings__round-container">
+      <ion-button
+        class="settings__round-btn" 
+        (click)="setRoundCount(false)"
+        [ngClass]="{'not-active': this.roundCount < 2}">
+        -
+      </ion-button>
+        <div class="settings__round-count">
+        {{roundCount}}
+
+        </div>
+      <ion-button 
+        class="settings__round-btn"
+        (click)="setRoundCount(true)">
+        +
+      </ion-button>
     </div>
+
   </div>
 </ion-content>
