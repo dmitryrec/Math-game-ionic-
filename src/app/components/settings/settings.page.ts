@@ -35,6 +35,6 @@ export class SettingsPage {
   }
 
   setRoundCount(plus: boolean) {
-    plus ? this.roundCount += 1 : this.roundCount -= 1;
+    plus ? this.settingsService.roundLength += 1 : this.settingsService.roundLength -= 1;
   }
 }

@@ -38,12 +38,11 @@
       <ion-button
         class="settings__round-btn" 
         (click)="setRoundCount(false)"
-        [ngClass]="{'not-active': this.roundCount < 2}">
+        [ngClass]="{'not-active': settingsService.roundLength < 2}">
         -
       </ion-button>
         <div class="settings__round-count">
-        {{roundCount}}
-
+        {{settingsService.roundLength}}
         </div>
       <ion-button 
         class="settings__round-btn"

@@ -15,8 +15,8 @@ export class GamePage {
   answer: string= '';
   rightAnswer;
   devidedNums = [];
-  
-  constructor(private settingsService: SettingsService) {}
+  round = 1;  
+  constructor(public settingsService: SettingsService) {}
 
   ionViewWillEnter() {
     this.operators = this.settingsService.selectedOperators;
@@ -53,7 +53,11 @@ export class GamePage {
     console.log(this.answer);
     if (this.rightAnswer === +this.answer) {
       alert('right!');
-      this.generateNewQuestion();
+      this.round++;
+      this.round < this.settingsService.roundLength ? 
+      this.generateNewQuestion() : 
+      alert('game over');
+      
     } else {
       alert('wrong!');
       this.answer = '';
