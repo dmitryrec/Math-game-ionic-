@@ -7,10 +7,12 @@
     <div class="game-over"
          *ngIf="gameIsOver">
       <ion-button routerLink="/menu" 
-                  (click)="resetGame()">
+                  (click)="resetGame()"
+                  class="game-over__btn">
         go to menu
       </ion-button>
-      <ion-button (click)="resetGame(true)">
+      <ion-button (click)="resetGame(true)"
+                  class="game-over__btn">
         restart
       </ion-button>
     </div>

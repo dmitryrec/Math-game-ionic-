@@ -17,6 +17,7 @@
     .game-over {
         position: absolute;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -25,6 +26,13 @@
         display: flex;
         background-color: var(--ion-color-dark);
         z-index: 3;
+
+        &__btn {
+            width: 40vw;
+            margin: 15px 0;
+            --color: var(--ion-color-primary-contrast);
+            --background: var(--ion-color-tertiary-tint);
+        }
     }
 
     .round {

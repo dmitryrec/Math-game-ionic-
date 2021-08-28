@@ -54,13 +54,11 @@ export class GamePage {
     console.log(this.rightAnswer);
     console.log(this.answer);
     if (this.rightAnswer === +this.answer) {
-      alert('right!');
       this.round++;
       this.round <= this.settingsService.roundLength ? 
       this.generateNewQuestion() : 
       this.completeGame();
     } else {
-      alert('wrong!');
       this.answer = '';
     } 
   }
@@ -98,7 +96,7 @@ export class GamePage {
 
   resetGame(restart?) {
     this.gameIsOver = false;
-    this.round = this.settingsService.roundLength;
+    this.round = 1;
     if (restart) {
       this.generateNewQuestion();
     }

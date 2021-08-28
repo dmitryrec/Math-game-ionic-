@@ -55,8 +55,9 @@
     }
 
     &__round-btn {
+        --color: var(--ion-color-primary-contrast);
         --background: var(--ion-color-tertiary-tint);
-        width: 40px;
+        max-width: 10vw;
     }
 
     &__operator {
