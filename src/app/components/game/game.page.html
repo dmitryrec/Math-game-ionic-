@@ -1,7 +1,18 @@
 <ion-content [fullscreen]="true">
   <div class="game-container">
-    <div routerLink="/menu" class="go-home">
+    <div routerLink="/menu" 
+         class="go-home">
       <
+    </div>
+    <div class="game-over"
+         *ngIf="gameIsOver">
+      <ion-button routerLink="/menu" 
+                  (click)="resetGame()">
+        go to menu
+      </ion-button>
+      <ion-button (click)="resetGame(true)">
+        restart
+      </ion-button>
     </div>
     <div class="round">
       {{round}} / {{settingsService.roundLength}}

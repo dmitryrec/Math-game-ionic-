@@ -16,6 +16,8 @@ export class GamePage {
   rightAnswer;
   devidedNums = [];
   round = 1;  
+  gameIsOver = false;
+
   constructor(public settingsService: SettingsService) {}
 
   ionViewWillEnter() {
@@ -54,10 +56,9 @@ export class GamePage {
     if (this.rightAnswer === +this.answer) {
       alert('right!');
       this.round++;
-      this.round < this.settingsService.roundLength ? 
+      this.round <= this.settingsService.roundLength ? 
       this.generateNewQuestion() : 
-      alert('game over');
-      
+      this.completeGame();
     } else {
       alert('wrong!');
       this.answer = '';
@@ -89,6 +90,18 @@ export class GamePage {
         }
     }
     return devidedArray;
+  }
+
+  completeGame() {
+    this.gameIsOver = true;
+  }
+
+  resetGame(restart?) {
+    this.gameIsOver = false;
+    this.round = this.settingsService.roundLength;
+    if (restart) {
+      this.generateNewQuestion();
+    }
   }
 
 }

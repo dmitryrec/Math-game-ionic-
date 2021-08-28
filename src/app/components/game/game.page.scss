@@ -14,6 +14,19 @@
         font-size: 30px;
     }
 
+    .game-over {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        display: flex;
+        background-color: var(--ion-color-dark);
+        z-index: 3;
+    }
+
     .round {
         position: absolute;
         top: 5px;
