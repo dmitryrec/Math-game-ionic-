@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { SettingsService } from 'src/app/services/settings.service';
+import { interval } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-game',
@@ -12,11 +14,13 @@ export class GamePage {
   num2: number;
   operators = this.settingsService.selectedOperators;
   operator: string;
-  answer: string= '';
+  answer: string = '';
   rightAnswer;
   devidedNums = [];
-  round = 1;  
+  round = 1;
   gameIsOver = false;
+  secondsCount: number;
+  remaningTimeStream$ = null;
 
   constructor(public settingsService: SettingsService) {}
 
@@ -30,37 +34,42 @@ export class GamePage {
   }
 
   returnResult(num1, operator, num2): number {
-    switch(operator) {
+    switch (operator) {
       case '+':
-      return num1 + num2;
+        return num1 + num2;
       case '-':
-      return num1 - num2;
+        return num1 - num2;
       case '*':
-      return num1 * num2;
+        return num1 * num2;
       case '/':
-      return num1 / num2;
+        return num1 / num2;
     }
   }
 
   resetAnswer() {
     this.answer = '';
+    this.secondsCount = 100;
   }
 
   pushInAnswer(num: number) {
-    this.answer+=num;
+    this.answer += num;
   }
 
   sendAnswer() {
     console.log(this.rightAnswer);
     console.log(this.answer);
     if (this.rightAnswer === +this.answer) {
-      this.round++;
-      this.round <= this.settingsService.roundLength ? 
-      this.generateNewQuestion() : 
-      this.completeGame();
+      this.checkGameIsOver();
     } else {
       this.answer = '';
-    } 
+    }
+  }
+
+  checkGameIsOver() {
+    this.round++;
+    this.round <= this.settingsService.roundLength ?
+    this.generateNewQuestion() :
+    this.completeGame();
   }
 
   generateNewQuestion() {
@@ -76,16 +85,23 @@ export class GamePage {
     }
     this.rightAnswer = this.returnResult(this.num1, this.operator, this.num2);
     this.resetAnswer();
+    this.remaningTimeStream$ && this.remaningTimeStream$.unsubscribe();
+    this.remaningTimeStream$ = interval(100).pipe(take(100)).subscribe(() => {
+      this.secondsCount -= 1;
+      if (this.secondsCount === 0) {
+        this.checkGameIsOver();
+      }
+    }); 
   }
 
   generateDevidedNums(min: number, max: number) {
     let devidedArray = [];
     for (let i = min; i < max; i++) {
-        for (let k = 2; k <= i; k++) {
-            if (i % k === 0 && k !== 1 && k !== i) {
-              devidedArray.push({ "num": i, "divider": k });
-            }
+      for (let k = 2; k <= i; k++) {
+        if (i % k === 0 && k !== 1 && k !== i) {
+          devidedArray.push({ "num": i, "divider": k });
         }
+      }
     }
     return devidedArray;
   }

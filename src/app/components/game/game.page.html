@@ -22,6 +22,7 @@
     <div class="game-container__question">
       {{num1}} {{operator}} {{num2}} = {{answer}}
     </div>
+    <div class="game-container__time-line" [ngStyle]="{'width.%': secondsCount}"></div>
     <div class="game-container__keyboard">
       <div (click)="pushInAnswer(1)">1</div>
       <div (click)="pushInAnswer(2)">2</div>

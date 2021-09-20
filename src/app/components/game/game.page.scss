@@ -7,6 +7,12 @@
     margin: 0;
     position: relative;
 
+    &__time-line {
+        height: 1vh;
+        width: 100%;
+        background-color: var(--ion-color-danger);
+    }
+
     .go-home {
         position: absolute;
         top: 5px;
@@ -45,7 +51,7 @@
     &__question {
         background: var(--ion-color-dark);
         color: var(--ion-color-warning-tint);
-        height: 40vh;
+        height: 39vh;
         display: flex;
         align-items: center;
         justify-content: center;
