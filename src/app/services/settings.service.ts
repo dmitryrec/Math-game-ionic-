@@ -5,6 +5,7 @@ export class SettingsService {
 
     selectedOperators = [];
     roundLength = 5;
+    secondsOnAnswer = 5;
 
     constructor() { }
 

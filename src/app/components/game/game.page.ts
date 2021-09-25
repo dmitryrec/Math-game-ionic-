@@ -21,8 +21,13 @@ export class GamePage {
   gameIsOver = false;
   secondsCount: number;
   remaningTimeStream$ = null;
+  timeRectangles;
 
-  constructor(public settingsService: SettingsService) {}
+  constructor(public settingsService: SettingsService) {
+    this.timeRectangles = [...Array(this.settingsService.secondsOnAnswer).
+                          keys()].
+                          map(el => el+1);
+  }
 
   ionViewWillEnter() {
     this.operators = this.settingsService.selectedOperators;
@@ -48,7 +53,7 @@ export class GamePage {
 
   resetAnswer() {
     this.answer = '';
-    this.secondsCount = 100;
+    this.secondsCount = this.settingsService.secondsOnAnswer;
   }
 
   pushInAnswer(num: number) {
@@ -86,9 +91,9 @@ export class GamePage {
     this.rightAnswer = this.returnResult(this.num1, this.operator, this.num2);
     this.resetAnswer();
     this.remaningTimeStream$ && this.remaningTimeStream$.unsubscribe();
-    this.remaningTimeStream$ = interval(100).pipe(take(100)).subscribe(() => {
+    this.remaningTimeStream$ = interval(1000).pipe(take(this.settingsService.secondsOnAnswer)).subscribe(() => {
       this.secondsCount -= 1;
-      if (this.secondsCount === 0) {
+      if (this.secondsCount < 1) {
         this.checkGameIsOver();
       }
     }); 
