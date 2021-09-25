@@ -18,7 +18,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        font-size: 20px;
+        font-size: 18px;
     }
 
     &__button {
@@ -29,7 +29,7 @@
         height: 2rem;
         justify-content: center;
         align-items: center;
-        box-shadow: 0 0 4px white;
+        box-shadow: 0 0 4px var(--ion-color-secondary-contrast);
     }
 
     &__options {
@@ -45,17 +45,17 @@
         margin-top: 10px;
     }
 
-    &__round-container {
+    &__set-container {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    &__round-count {
+    &__set-count {
         padding: 0 5px;
     }
 
-    &__round-btn {
+    &__set-btn {
         --color: var(--ion-color-primary-contrast);
         --background: var(--ion-color-tertiary-tint);
         max-width: 10vw;
