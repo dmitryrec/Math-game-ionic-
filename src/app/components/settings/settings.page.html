@@ -37,7 +37,7 @@
     <div class="settings__set-container">
       <ion-button
         class="settings__set-btn" 
-        (click)="setRoundCount(false)"
+        (click)="setCounts(false, 'roundLength')"
         [ngClass]="{'not-active': settingsService.roundLength < 2}">
         -
       </ion-button>
@@ -46,7 +46,7 @@
         </div>
       <ion-button 
         class="settings__set-btn"
-        (click)="setRoundCount(true)">
+        (click)="setCounts(true, 'roundLength')">
         +
       </ion-button>
     </div>
@@ -55,7 +55,7 @@
     <div class="settings__set-container">
       <ion-button
         class="settings__set-btn" 
-        (click)="setRoundCount(false)"
+        (click)="setCounts(false, 'secondsOnAnswer')"
         [ngClass]="{'not-active': settingsService.secondsOnAnswer < 6}">
         -
       </ion-button>
@@ -64,7 +64,7 @@
         </div>
       <ion-button 
         class="settings__set-btn"
-        (click)="setRoundCount(true)">
+        (click)="setCounts(true, 'secondsOnAnswer')">
         +
       </ion-button>
     </div>

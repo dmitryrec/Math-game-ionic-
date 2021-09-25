@@ -34,7 +34,11 @@ export class SettingsPage {
     }
   }
 
-  setRoundCount(plus: boolean) {
-    plus ? this.settingsService.roundLength += 1 : this.settingsService.roundLength -= 1;
+  setCounts(plus: boolean, settedType: string) {
+    if (settedType === 'roundLength') {
+      plus ? this.settingsService.roundLength += 1 : this.settingsService.roundLength -= 1;
+    } else {
+      plus ? this.settingsService.secondsOnAnswer += 1 : this.settingsService.secondsOnAnswer -= 1;
+    }
   }
 }
