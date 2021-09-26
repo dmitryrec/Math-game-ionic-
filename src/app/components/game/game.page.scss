@@ -26,9 +26,17 @@
 
     .go-home {
         position: absolute;
-        top: 5px;
+        top: 8px;
         left: 5px;
         font-size: 30px;
+        color: var(--ion-color-dark);
+        background: var(--ion-color-warning-tint);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .game-over {
