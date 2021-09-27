@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { SettingsService } from 'src/app/services/settings.service';
 import { interval } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { AnimationController, Animation } from '@ionic/angular';
 
 @Component({
   selector: 'app-game',
   templateUrl: 'game.page.html',
-  styleUrls: ['game.page.scss']
+  styleUrls: ['game.page.scss'],
+  animations: []
 })
 export class GamePage {
+
+  @ViewChild('answerReaction', {static: false}) answerReaction: ElementRef;
+  animation: Animation;
 
   num1: number;
   num2: number;
@@ -23,7 +28,10 @@ export class GamePage {
   remaningTimeStream$ = null;
   timeRectangles;
 
-  constructor(public settingsService: SettingsService) {
+  constructor(
+    public settingsService: SettingsService, 
+    public animationCtrl: AnimationController
+    ) {
     this.timeRectangles = [...Array(this.settingsService.secondsOnAnswer).
                           keys()].
                           map(el => el+1);
@@ -32,6 +40,12 @@ export class GamePage {
   ionViewWillEnter() {
     this.operators = this.settingsService.selectedOperators;
     this.generateNewQuestion();
+    this.animation = this.animationCtrl.create();
+    this.animation.addElement(this.answerReaction.nativeElement)
+    .duration(1000)
+    .easing('ease-out')
+    .iterations(1)
+    .fromTo('opacity', 0.3, 0);
   }
 
   generateRandomNum(min, max): number {
@@ -66,6 +80,7 @@ export class GamePage {
     if (this.rightAnswer === +this.answer) {
       this.checkGameIsOver();
     } else {
+      this.animation.play();
       this.answer = '';
     }
   }

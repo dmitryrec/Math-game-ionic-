@@ -21,6 +21,7 @@
     </div>
     <div class="game-container__question">
       {{num1}} {{operator}} {{num2}} = {{answer}}
+      <div #answerReaction class="game-container__answer-reaction"></div>
     </div>
     <div class="game-container__time-line">
       <div *ngFor="let rectangle of timeRectangles"
