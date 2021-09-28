@@ -7,8 +7,7 @@ import { AnimationController, Animation } from '@ionic/angular';
 @Component({
   selector: 'app-game',
   templateUrl: 'game.page.html',
-  styleUrls: ['game.page.scss'],
-  animations: []
+  styleUrls: ['game.page.scss']
 })
 export class GamePage {
 
@@ -32,13 +31,13 @@ export class GamePage {
     public settingsService: SettingsService, 
     public animationCtrl: AnimationController
     ) {
-    this.timeRectangles = [...Array(this.settingsService.secondsOnAnswer).
-                          keys()].
-                          map(el => el+1);
   }
 
   ionViewWillEnter() {
     this.operators = this.settingsService.selectedOperators;
+    this.timeRectangles = [...Array(this.settingsService.secondsOnAnswer).
+      keys()].
+      map(el => el+1);
     this.generateNewQuestion();
     this.animation = this.animationCtrl.create();
     this.animation.addElement(this.answerReaction.nativeElement)
