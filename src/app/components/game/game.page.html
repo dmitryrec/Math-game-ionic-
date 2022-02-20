@@ -23,29 +23,24 @@
       {{num1}} {{operator}} {{num2}} = {{answer}}
       <div #answerReaction class="game-container__answer-reaction"></div>
     </div>
-    <div class="game-container__time-line">
-      <div *ngFor="let rectangle of timeRectangles"
-           [ngClass]="{'hide': rectangle >= secondsCount + 1}">
-      </div>
+    <div class="game-container__time-line" 
+         [ngStyle]="{'width.%': secondsCount / settingsService.secondsOnAnswer * 100}">
     </div>
     <div class="game-container__keyboard">
-      <div (click)="pushInAnswer(1)">1</div>
-      <div (click)="pushInAnswer(2)">2</div>
-      <div (click)="pushInAnswer(3)">3</div>
-      <div (click)="pushInAnswer(4)">4</div>
-      <div (click)="pushInAnswer(5)">5</div>
-      <div (click)="pushInAnswer(6)">6</div>
-      <div (click)="pushInAnswer(7)">7</div>
-      <div (click)="pushInAnswer(8)">8</div>
-      <div (click)="pushInAnswer(9)">9</div>
+      <div *ngFor="let num of keyboardNums" 
+           (click)="pushInAnswer(num+1)">
+        {{num+1}}
+      </div>
       <div 
         class="game-container__keyboard__del"
+        id="del"
         (click)="resetAnswer()">
         del
       </div>
       <div (click)="pushInAnswer(0)">0</div>
       <div 
         class="game-container__keyboard__ok"
+        id="ok"
         (click)="sendAnswer()"
         [ngClass]="{'disabled': !answer}">
         ok

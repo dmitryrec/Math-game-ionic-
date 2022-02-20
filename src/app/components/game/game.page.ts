@@ -26,6 +26,7 @@ export class GamePage {
   secondsCount: number;
   remaningTimeStream$ = null;
   timeRectangles;
+  keyboardNums = [...Array(9).keys()];
 
   constructor(
     public settingsService: SettingsService, 

@@ -9,19 +9,12 @@
 
     &__time-line {
         height: 5vh;
-        background-color: var(--ion-color-dark);
+        background: #ff0000;
         box-sizing: border-box;
         border: 1px solid var(--ion-color-warning-tint);
         display: flex;
         flex-wrap: nowrap;
         justify-content: stretch;
-
-        div {
-            display: flex;
-            background: var(--ion-color-danger-shade);
-            width: 100%;
-            margin: 5px;
-        }
     }
 
     .go-home {
@@ -82,7 +75,7 @@
         height: 35vh;
         width: 100%;
         position: absolute;
-        background: red;
+        background: #ff0000;
         opacity: 0;
     }
 
@@ -100,10 +93,11 @@
             margin: .5rem;
             box-sizing: border-box;
             border: 10px solid var(--ion-color-dark);
+            transition: .3s all ease;
         }
 
         div:active {
-            border: 10px solid green;
+            box-shadow: 0 0 10px yellow inset;
         }
 
         &__del, &__ok {
@@ -117,6 +111,14 @@
 
         &__ok {
             color: var(--ion-color-success);
+        }
+
+        #del:active {
+            box-shadow: 0 0 10px var(--ion-color-danger) inset;
+        }
+
+        #ok:active {
+            box-shadow: 0 0 10px var(--ion-color-success) inset;
         }
 
         .disabled {

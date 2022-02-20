@@ -26,6 +26,10 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
+* {
+    font-family: 'Staatliches', cursive;
+}
+
 .not-active {
     opacity: .5;
     pointer-events: none;
