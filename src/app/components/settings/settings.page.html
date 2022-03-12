@@ -5,16 +5,18 @@
       Settings
     </div>
 
-    <h2 class="settings__warning"
-        [ngClass]="{'hide': this.settingsService.selectedOperators.length}">
+    <div class="settings__btn-and-warning">
+      <h2 class="settings__warning"
+        *ngIf="!this.settingsService.selectedOperators.length">
       Please select at least one operator
-    </h2>
+      </h2>
 
-    <div class="settings__buttons">
-      <div routerLink="/game"
-           class="basic-button"
-           [ngClass]="{'not-active': !this.settingsService.selectedOperators.length}">
-        play
+      <div class="settings__buttons">
+        <div routerLink="/game"
+            class="basic-button"
+            *ngIf="this.settingsService.selectedOperators.length">
+          play
+        </div>
       </div>
     </div>
 
