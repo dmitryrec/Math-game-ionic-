@@ -6,15 +6,15 @@
     </div>
     <div class="game-over"
          *ngIf="gameIsOver">
-      <ion-button routerLink="/menu" 
-                  (click)="resetGame()"
-                  class="game-over__btn">
-        go to menu
-      </ion-button>
-      <ion-button (click)="resetGame(true)"
-                  class="game-over__btn">
+      <div routerLink="/settings" 
+           (click)="resetGame()"
+           class="basic-button m10">
+        settings
+      </div>
+      <div (click)="resetGame(true)"
+            class="basic-button m10">
         restart
-      </ion-button>
+      </div>
     </div>
     <div class="round">
       {{round}} / {{settingsService.roundLength}}

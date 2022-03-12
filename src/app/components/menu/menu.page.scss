@@ -18,15 +18,4 @@
         height: 30vh;
         font-size: 18px;
     }
-    
-    &__button {
-        display: flex;
-        border: 1px solid var(--ion-color-warning-tint);
-        border-radius: 5px;
-        min-width: 5rem;
-        height: 2rem;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 0 4px var(--ion-color-secondary-contrast);
-    }
 }

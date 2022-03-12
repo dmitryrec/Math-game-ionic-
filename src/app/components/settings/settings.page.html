@@ -12,14 +12,9 @@
 
     <div class="settings__buttons">
       <div routerLink="/game"
-           class="settings__button"
+           class="basic-button"
            [ngClass]="{'not-active': !this.settingsService.selectedOperators.length}">
         play
-      </div>
-      <div routerLink="/menu"
-           class="settings__button"
-           [ngClass]="{'not-active': !this.settingsService.selectedOperators.length}">
-        menu
       </div>
     </div>
 

@@ -39,3 +39,22 @@
 .hide {
     opacity: 0;
 }
+
+.basic-button {
+    display: flex;
+    border: 1px solid var(--ion-color-warning-tint);
+    border-radius: 5px;
+    min-width: 7rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 1px var(--ion-color-secondary-contrast);
+    margin: 10px;
+    font-size: 3rem;
+    color: var(--ion-color-dark);
+    background: var(--ion-color-warning-tint);
+}
+
+.m10 {
+    margin: 10px;
+}
