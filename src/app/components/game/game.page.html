@@ -6,13 +6,17 @@
     </div>
     <div class="game-over"
          *ngIf="gameIsOver">
+      <div class="result">
+        correct answers: 
+        <div>{{rightAnswers}} of {{settingsService.roundLength}}</div>
+      </div>
       <div routerLink="/settings" 
            (click)="resetGame()"
-           class="basic-button m10">
+           class="basic-button m5">
         settings
       </div>
       <div (click)="resetGame(true)"
-            class="basic-button m10">
+            class="basic-button m5">
         restart
       </div>
     </div>
@@ -34,7 +38,7 @@
       <div 
         class="game-container__keyboard__del"
         id="del"
-        (click)="resetAnswer()">
+        (click)="resetAnswer(false)">
         del
       </div>
       <div (click)="pushInAnswer(0)">0</div>

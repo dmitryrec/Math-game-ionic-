@@ -3,6 +3,7 @@ import { SettingsService } from 'src/app/services/settings.service';
 import { interval } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { AnimationController, Animation } from '@ionic/angular';
+import { Interface } from 'readline';
 
 @Component({
   selector: 'app-game',
@@ -27,6 +28,7 @@ export class GamePage {
   remaningTimeStream$ = null;
   timeRectangles;
   keyboardNums = [...Array(9).keys()];
+  rightAnswers: number;
 
   constructor(
     public settingsService: SettingsService, 
@@ -35,6 +37,7 @@ export class GamePage {
   }
 
   ionViewWillEnter() {
+    this.rightAnswers = 0;
     this.round = 1;
     this.operators = this.settingsService.selectedOperators;
     this.timeRectangles = [...Array(this.settingsService.secondsOnAnswer).
@@ -66,9 +69,11 @@ export class GamePage {
     }
   }
 
-  resetAnswer() {
+  resetAnswer(rounsIsOver: boolean) {
     this.answer = '';
-    this.secondsCount = this.settingsService.secondsOnAnswer;
+    if (rounsIsOver) {
+      this.secondsCount = this.settingsService.secondsOnAnswer;
+    }
   }
 
   pushInAnswer(num: number) {
@@ -80,6 +85,7 @@ export class GamePage {
     console.log(this.answer);
     if (this.rightAnswer === +this.answer) {
       this.checkGameIsOver();
+      this.rightAnswers +=1;
     } else {
       this.animation.play();
       this.answer = '';
@@ -105,7 +111,7 @@ export class GamePage {
       this.num2 = this.generateRandomNum(0, 50);
     }
     this.rightAnswer = this.returnResult(this.num1, this.operator, this.num2);
-    this.resetAnswer();
+    this.resetAnswer(true);
     this.remaningTimeStream$ && this.remaningTimeStream$.unsubscribe();
     this.remaningTimeStream$ = interval(1000).pipe(take(this.settingsService.secondsOnAnswer)).subscribe(() => {
       this.secondsCount -= 1;

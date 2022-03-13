@@ -45,6 +45,14 @@
         display: flex;
         background-color: var(--ion-color-dark);
         z-index: 3;
+
+        .result {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+        }
     }
 
     .round {
