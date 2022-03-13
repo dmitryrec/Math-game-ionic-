@@ -51,6 +51,10 @@ export class GamePage {
     .fromTo('opacity', 0.3, 0);
   }
 
+  ionViewDidLeave() {
+    this.remaningTimeStream$.unsubscribe();
+  }
+
   generateRandomNum(min, max): number {
     return Math.floor(Math.random() * (max - min) + min);
   }
