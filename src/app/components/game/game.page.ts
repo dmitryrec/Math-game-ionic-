@@ -68,9 +68,9 @@ export class GamePage {
     }
   }
 
-  resetAnswer(rounsIsOver: boolean) {
+  resetAnswer(roundIsOver: boolean) {
     this.answer = '';
-    if (rounsIsOver) {
+    if (roundIsOver) {
       this.secondsCount = this.settingsService.secondsOnAnswer;
     }
   }

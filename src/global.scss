@@ -73,6 +73,14 @@ p {
     background: var(--ion-color-warning-tint);
 }
 
+.set-btn {
+    min-width: 6vh;
+    height: 6vh;
+    box-shadow: 0 0 6px var(--ion-color-secondary-contrast);
+    color: var(--ion-color-warning-tint);
+    background: var(--ion-color-dark);
+}
+
 .m5 {
     margin: 5vh;
 }
