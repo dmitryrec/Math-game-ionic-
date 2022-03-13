@@ -3,7 +3,6 @@ import { SettingsService } from 'src/app/services/settings.service';
 import { interval } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { AnimationController, Animation } from '@ionic/angular';
-import { Interface } from 'readline';
 
 @Component({
   selector: 'app-game',
@@ -84,8 +83,8 @@ export class GamePage {
     console.log(this.rightAnswer);
     console.log(this.answer);
     if (this.rightAnswer === +this.answer) {
-      this.checkGameIsOver();
       this.rightAnswers +=1;
+      this.checkGameIsOver();
     } else {
       this.animation.play();
       this.answer = '';
