@@ -21,7 +21,7 @@ export class GamePage {
   answer: string = '';
   rightAnswer;
   devidedNums = [];
-  round = 1;
+  round: number;
   gameIsOver = false;
   secondsCount: number;
   remaningTimeStream$ = null;
@@ -35,6 +35,7 @@ export class GamePage {
   }
 
   ionViewWillEnter() {
+    this.round = 1;
     this.operators = this.settingsService.selectedOperators;
     this.timeRectangles = [...Array(this.settingsService.secondsOnAnswer).
       keys()].
